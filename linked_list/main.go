@@ -1,7 +1,3 @@
-// Удалить n-й эл-т с конца
-// Input:  [1,2,3,4,5], 2
-// Output: [1,2,3,5]
-
 package linked_list
 
 func NewListNode[T comparable](items []T) *ListNode[T] {
@@ -41,8 +37,8 @@ func (o *ListNode[T]) ToSlice() []T {
 	return r
 }
 
+// Удалить n-й эл-т с конца (index: [1..N])
 // O(n)
-// index: [1..N]
 func (o *ListNode[T]) RemoveNthFromEnd(index int) *ListNode[T] {
 	if index < 1 {
 		return o
@@ -69,6 +65,7 @@ func (o *ListNode[T]) RemoveNthFromEnd(index int) *ListNode[T] {
 	return dummy.Next
 }
 
+// Развернуть список
 func (o *ListNode[T]) Reverse() *ListNode[T] {
 	var prev *ListNode[T]
 	curr := o
@@ -91,6 +88,7 @@ func (o *ListNode[T]) Reverse() *ListNode[T] {
 // 	return r
 // }
 
+// Вернуть середину списка, если длина четная, вернуть правую половину
 func (o *ListNode[T]) Middle() *ListNode[T] {
 	fast := o
 	slow := o
@@ -103,6 +101,7 @@ func (o *ListNode[T]) Middle() *ListNode[T] {
 	return slow
 }
 
+// Вернуть результат проверки, является ли список палиндромом
 func (o *ListNode[T]) IsPalindrome() bool {
 	left := o
 	right := o.Middle().Reverse()
